@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1, 
+        "name": "Carl Carl", 
+        "dob": "13.12.1990",
+        "phone": "+375291111113",
+        "isFavorite": "false"
+    }
+]

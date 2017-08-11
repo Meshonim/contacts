@@ -5,7 +5,10 @@ angular.module('myApp', [
   'myApp.contacts',
   'myApp.favorite',
   'myApp.version',
-  'ui.router'
+  'myApp.core',
+  'ui.router',
+  'ngResource',
+  'ui.bootstrap'
 ]).
 config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/home');
@@ -17,6 +20,10 @@ config(function($stateProvider, $urlRouterProvider) {
     url: '/favorite',
     templateUrl: 'contacts/favorite.html',
     controller: 'FavoriteListController'
+  }).state('editContact', { 
+    url: '/editContact/:contactId',
+    templateUrl: 'contacts/contacts.details.html',
+    controller: 'ContactDetailsController'
   });
 }).run(function($state) {
   $state.go('home'); 

@@ -1,4 +1,4 @@
-<div class="container-fluid" ng-controller="ContactListController">
+<div class="container-fluid" ng-controller="FavoriteListController">
 <div class="row">
 <div class="col-md-offset-2">
    <button type="button" ui-sref="home" class="btn btn-default">All contacts</button>
@@ -7,7 +7,7 @@
 <div>
 <div class="row top-buffer ">
    <div class="col-md-offset-2 col-md-8">
-            <div ng-repeat="contact in contacts" class="bottom-buffer col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+            <div ng-repeat="contact in favorite" class="bottom-buffer col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
                 <div class="panel panel-default">
   <div class="panel-body">{{ contact.name }}</br>{{ contact.phone }}</div>
 </div>

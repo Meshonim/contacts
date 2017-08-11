@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1, 
+        "name": "Jack Jack", 
+        "dob": "11.12.1990",
+        "phone": "+375291111111",
+        "isFavorite": "false"
+    },
+    {
+        "id": 2, 
+        "name": "John John", 
+        "dob": "12.12.1990",
+        "phone": "+375291111112", 
+        "isFavorite": "true"
+    }, 
+    {
+        "id": 3, 
+        "name": "Carl Carl", 
+        "dob": "13.12.1990",
+        "phone": "+375291111113", 
+        "isFavorite": "false"
+    }
+]
