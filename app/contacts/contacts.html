@@ -1,0 +1,49 @@
+<div class="container-fluid" ng-controller="ContactListController">
+<div class="row">
+<div class="col-md-offset-2">
+   <button type="button" ui-sref="home" class="btn btn-default">All contacts</button>
+   <button type="button" ui-sref="favorite" class="btn btn-default">Favorite contacts</button>
+</div>
+<div>
+<div class="row top-buffer">
+<div class="col-md-offset-2 col-md-3">
+   <div class="icon-addon addon-md">
+      <input ng-model="query.name" type="text" placeholder="search" class="form-control" id="email">
+      <label for="email" class="glyphicon glyphicon-search" rel="tooltip" title="email"></label>
+   </div>
+</div>
+<div>
+<div class="row">
+   <div class="col-md-offset-2 col-md-8">
+      <table class="table table-striped">
+         <thead>
+            <tr>
+               <th></th>
+               <th>Name</th>
+               <th>DOB</th>
+               <th>Phone number</th>
+               <th>Favorite</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr ng-repeat="contact in contacts | filter:query">
+               <td><input type="checkbox" ></input></td>
+               <td>{{ contact.name }}</td>
+               <td>{{ contact.dob | date :  "dd.MM.yyyy" }}</td>
+               <td>{{ contact.phone }}</td>
+               <td><input type="checkbox" ng-checked="{{ contact.isFavorite }}"></input></td>
+               <td><button type="button" class="btn btn-success">
+                  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
+                  </button>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</div>
+<div class="row">
+<div class="col-md-offset-8">
+   <button type="button" class="btn btn-danger">Remove</button>
+   <button type="button" class="btn btn-primary">Add new</button>   
+</div>
+<div></div>
