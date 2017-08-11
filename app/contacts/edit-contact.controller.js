@@ -3,13 +3,12 @@
 
     angular
         .module('myApp.contacts')
-        .controller('ContactDetailsController', controller)
+        .controller('EditContactController', controller)
 
     controller.$inject = ['$scope', 'Contact', '$stateParams'];
 
     function controller($scope, Contact, $stateParams) {
 
-        if ($stateParams.contactId != "")
             Contact.query({
                 contactId: $stateParams.contactId
             }, function(contact) {

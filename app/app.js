@@ -22,8 +22,12 @@ config(function($stateProvider, $urlRouterProvider) {
     controller: 'FavoriteListController'
   }).state('editContact', { 
     url: '/editContact/:contactId',
-    templateUrl: 'contacts/contacts.details.html',
-    controller: 'ContactDetailsController'
+    templateUrl: 'contacts/edit-contact.html',
+    controller: 'EditContactController'
+  }).state('addContact', { 
+    url: '/addContact',
+    templateUrl: 'contacts/add-contact.html',
+    controller: 'AddContactController'
   });
 }).run(function($state) {
   $state.go('home'); 
