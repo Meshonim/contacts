@@ -8,8 +8,8 @@
 <div class="row top-buffer">
 <div class="col-md-offset-2 col-md-3">
    <div class="icon-addon addon-md">
-      <input ng-model="query.name" type="text" placeholder="search" class="form-control" id="email">
-      <label for="email" class="glyphicon glyphicon-search" rel="tooltip" title="email"></label>
+      <input ng-model="criteria" type="text" placeholder="search" class="form-control" id="search">
+      <label for="search" class="glyphicon glyphicon-search" rel="tooltip" ></label>
    </div>
 </div>
 <div>
@@ -26,12 +26,12 @@
             </tr>
          </thead>
          <tbody>
-            <tr ng-repeat="contact in contacts | filter:query">
+            <tr ng-repeat="contact in contacts | filter:criteriaMatch(criteria)">
                <td><input type="checkbox" ></input></td>
-               <td>{{ contact.first }}</td>
+               <td>{{ contact.first }} {{contact.last}}</td>
                <td>{{ contact.dob | date :  "dd.MM.yyyy" }}</td>
                <td>{{ contact.phone }}</td>
-               <td><input type="checkbox" ng-model="contact.isFavorite" ng-click="changeStatus(contact.id, contact.isFavorite)" ></input></td>
+               <td><input type="checkbox" ng-model="contact.isFavorite" ng-change="changeStatus(contact.id, contact.isFavorite)" ></input></td>
                <td><button ui-sref='editContact({contactId: {{contact.id}}})' type="button" class="btn btn-success">
                   <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
                   </button>
