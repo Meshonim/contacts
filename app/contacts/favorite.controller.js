@@ -6,8 +6,14 @@
         .controller('FavoriteListController', controller)
 
     controller.$inject = ['$scope', 'Contact'];
-
+    
     function controller($scope, Contact) {
-        $scope.favorite = Contact.query({contactId: "1"});
+        $scope.favorite = Contact.query();
+        $scope.favorite.$promise.then(function(result) {
+            $scope.favorite = result.filter(function (e) {
+                return e.isFavorite === "1";
+            });
+        
+});
     }
 })();

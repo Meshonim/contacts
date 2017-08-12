@@ -5,13 +5,14 @@
    <button type="button" ui-sref="favorite" class="btn btn-default">Favorite contacts</button>
 </div>
 <div>
-<div class="row top-buffer ">
-   <div class="col-md-offset-2 col-md-8">
-            <div ng-repeat="contact in favorite" class="bottom-buffer col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
-                <div class="panel panel-default">
-  <div class="panel-body">{{ contact.name }}</br>{{ contact.phone }}</div>
-</div>
+   <div class="row top-buffer ">
+      <div class="col-md-offset-2 col-md-8">
+         <h2 ng-if="favorite.length == 0">No favorite contacts</h2>
+         <div ng-repeat="contact in favorite" class="bottom-buffer col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe">
+            <div class="panel panel-default">
+               <div class="panel-body">{{ contact.first }} {{contact.last}}</br>{{ contact.phone }}</div>
             </div>
+         </div>
+      </div>
    </div>
-</div>
 </div>

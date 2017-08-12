@@ -2,12 +2,18 @@ angular.
   module('myApp.core', ['ngResource']).
   factory('Contact', ['$resource',
     function($resource) {
-      return $resource('info/:contactId.json', {}, {
+      return $resource('http://localhost/api/contacts/:contactId', {}, {
         query: {
           method: 'GET',
-          params: {contactId: 'contacts'},
           isArray: true
+        },
+        favorite: {
+          url: 'http://localhost/api/contacts/favorite/:id',
+          method: 'PUT',
+          params: {id: 'id'}
         }
+         
+
       });
     }
   ]);
