@@ -26,8 +26,9 @@
             </tr>
          </thead>
          <tbody>
-            <tr ng-repeat="contact in contacts | filter:criteriaMatch(criteria)">
-               <td><input type="checkbox" ></input></td>
+
+            <tr ng-repeat="contact in contacts | filter:criteriaMatch(criteria) track by $index">
+               <td><input type="checkbox" ng-model="contact.isChecked" ng-change="check(contact.isChecked)" ></input></td>
                <td>{{ contact.first }} {{contact.last}}</td>
                <td>{{ contact.dob | date :  "dd.MM.yyyy" }}</td>
                <td>{{ contact.phone }}</td>
@@ -43,7 +44,7 @@
 </div>
 <div class="row">
 <div class="col-md-offset-8">
-   <button type="button" class="btn btn-danger">Remove</button>
+   <button type="button" ng-disabled="checkedNumber == 0" ng-click="remove()" class="btn btn-danger">Remove</button>
    <button ui-sref='addContact' type="button" class="btn btn-primary">Add new</button>   
 </div>
 <div>

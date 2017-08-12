@@ -2,17 +2,18 @@ angular.
   module('myApp.core', ['ngResource']).
   factory('Contact', ['$resource',
     function($resource) {
-      return $resource('http://localhost/api/contacts/:contactId', {}, {
+      return $resource('http://localhost/api/contacts/:id', {id: ''}, {
         query: {
           method: 'GET',
           isArray: true
         },
         favorite: {
-          url: 'http://localhost/api/contacts/favorite/:id',
-          method: 'PUT',
-          params: {id: 'id'}
-        }
-         
+          url: 'http://localhost/api/contacts/:id/favorite',
+          method: 'PUT'
+        },
+        delete: {
+          method: 'DELETE'
+        } 
 
       });
     }
