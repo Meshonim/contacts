@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('myApp.contacts', [])
+        .module('myApp.contacts', ['ui.router'])
         .controller('ContactListController', controller)
 
     controller.$inject = ['$scope', 'Contact', '$q'];

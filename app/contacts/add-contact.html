@@ -2,7 +2,7 @@
 <div class="container-fluid" ng-controller="AddContactController">
   <div class="row">
     <div class="col-md-offset-4 col-md-4">
-<form role="form" ng-submit="add()">
+<form name="contactForm" novalidate ng-submit="add()" >
   <div ng-include="'partials/_form.html'"></div>
 </form>
     </div>

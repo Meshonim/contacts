@@ -22,6 +22,7 @@ config(function($stateProvider, $urlRouterProvider) {
     controller: 'FavoriteListController'
   }).state('editContact', { 
     url: '/editContact/:contactId',
+    component: 'dobInput',
     templateUrl: 'contacts/edit-contact.html',
     controller: 'EditContactController'
   }).state('addContact', { 

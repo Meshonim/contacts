@@ -1,44 +1,42 @@
   <div class="form-group">
-    <label for="inputName">Name</label>
-    <input type="text" ng-model="contact.name" id="inputName" class="form-control" placeholder="Enter name">
+    <label for="inputFirst">First Name</label>
+    <input type="text" ng-model="contact.first" id="inputFirst" class="form-control" placeholder="Enter name">
+  </div>
+  <div class="form-group">
+    <label for="inputLast">Last Name</label>
+    <input type="text" ng-model="contact.last" id="inputLast" class="form-control" placeholder="Enter name">
   </div>
 <div class="form-group">
-    <label for="dob">Date of birth</label>
-<input type="date" class="form-control" id="dob" name="input" ng-model="contact.dob"/>
+    <dob-input dob="contact.dob"></dob-input>
   </div>
-
-
 
 <div class="form-group">
     <label for="phoneNumber">Phone</label>
-    <input type="text" ng-model="contact.phone" id="phoneNumber" class="form-control" placeholder="Enter number">
+    <input type="number" ng-maxlength="9" ng-model="contact.phone" id="phoneNumber" class="form-control" placeholder="Enter number">
   </div>
   <div class="form-group">
-    <label for="exampleSelect1">Relationship</label>
-    <select class="form-control" id="exampleSelect1">
-      <option>Home</option>
-      <option>Work</option>
-      <option>Others</option>
+    <label for="inputRel">Relationship</label>
+    <select class="form-control" ng-model="contact.rel" id="inputRel">
+      <option value="Home">Home</option>
+      <option value="Work">Work</option>
+      <option value="Others">Others</option>
     </select>
-  </div>
-  <div class="form-group">
-    <label for="desc">Description</label>
-    <textarea class="form-control" id="desc" rows="3"></textarea>
   </div>
   <fieldset class="form-group">
     <legend>Gender</legend>
-    <div class="form-check">
       <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="male" checked>
+        <input type="radio" ng-model="contact.gender" name="inputGender" id="inputGender0" value="0">
         Male
       </label>
-    </div>
-    <div class="form-check">
     <label class="form-check-label">
-        <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="female">
+        <input type="radio" ng-model="contact.gender" name="inputGender" id="inputGender1" value="1">
         Female
       </label>
-    </div>
   </fieldset>
+  <div class="form-group">
+    <label for="inputDesc">Description</label>
+    <textarea ng-model="contact.des" class="form-control" id="inputDesc" rows="3"></textarea>
+  </div>
+  
   <button type="submit" class="btn btn-primary">Submit</button>
   <button ui-sref='home' class="btn btn-default">Cancel</button>

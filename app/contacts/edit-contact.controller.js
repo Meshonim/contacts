@@ -9,14 +9,19 @@
 
     function controller($scope, Contact, $stateParams) {
 
-            Contact.query({
-                contactId: $stateParams.contactId
-            }, function(contact) {
-                console.log(contact[0]);
-                $scope.contact = contact[0];
-                var date = $scope.contact.dob.split('.');
-                $scope.contact.dob = new Date(date[2], date[1] - 1, date[0]);
-                
+            Contact.get({
+                id: $stateParams.contactId
+            }).$promise.then(function(contact) {           
+                $scope.contact = contact;
+                var date = $scope.contact.dob.split('-');
+                $scope.contact.dob = new Date(date[0], date[1] - 1, date[2]);
+                $scope.contact.phone = Number($scope.contact.phone);
             });
+
+            $scope.update = function ()
+            {
+                console.log(contactForm);
+                console.log($scope.contact.dob);
+            }
     }
 })();

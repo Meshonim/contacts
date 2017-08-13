@@ -7,14 +7,16 @@ angular.
           method: 'GET',
           isArray: true
         },
+        get: {
+          method: 'GET'
+        }, 
+        delete: {
+          method: 'DELETE'
+        },
         favorite: {
           url: 'http://localhost/api/contacts/:id/favorite',
           method: 'PUT'
-        },
-        delete: {
-          method: 'DELETE'
-        } 
-
+        }
       });
     }
   ]);
