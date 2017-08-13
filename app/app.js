@@ -8,7 +8,8 @@ angular.module('myApp', [
   'myApp.core',
   'ui.router',
   'ngResource',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'blockUI'
 ]).
 config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode(true);

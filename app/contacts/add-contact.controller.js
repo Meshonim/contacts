@@ -5,9 +5,9 @@
         .module('myApp.contacts')
         .controller('AddContactController', controller)
 
-    controller.$inject = ['Contact', '$scope', '$state', '$filter'];
+    controller.$inject = ['Contact', '$scope', '$state', '$filter', 'blockUI'];
 
-    function controller(Contact, $scope, $state, $filter) {
+    function controller(Contact, $scope, $state, $filter, blockUI) {
             var vm = this;
             $scope.contact = {};
             $scope.add = function ()
@@ -17,6 +17,7 @@
                         alert ("Error: form is not valid");
                         return;
                     }
+                blockUI.start();
                 Contact.insert({},
                      {
                         first: $scope.contact.first,
@@ -28,10 +29,9 @@
                         des: $scope.contact.des
                      })
                 .$promise.then(function(result) {
+                    blockUI.stop();
                     $state.go("home");
             });
-                //    console.log($scope.contact);
-               // console.log($scope.contact);
             }
 
             
