@@ -19,8 +19,11 @@
             });        
             $scope.update = function ()
             {
-                console.log(contactForm);
-                console.log($scope.contact.dob);
+                if (vm.contactForm.$invalid)
+                    {
+                        alert ("Error: form is not valid");
+                        return;
+                    }
             }
            // vm.contactForm.$setDirty();
     }

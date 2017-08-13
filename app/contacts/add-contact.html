@@ -1,8 +1,8 @@
 
-<div class="container-fluid" ng-controller="AddContactController">
+<div class="container-fluid" ng-controller="AddContactController as addCtrl">
   <div class="row">
     <div class="col-md-offset-4 col-md-4">
-<form name="contactForm" novalidate ng-submit="add()" >
+<form name="addCtrl.contactForm" novalidate ng-submit="add()" >
   <div ng-include="'partials/_form.html'"></div>
 </form>
     </div>

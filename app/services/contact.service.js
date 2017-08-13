@@ -9,6 +9,9 @@ angular.
         },
         get: {
           method: 'GET'
+        },
+        insert: {
+          method: 'POST'
         }, 
         delete: {
           method: 'DELETE'
