@@ -24,16 +24,24 @@
         }
         $scope.remove = function() {
             var promises = [];
-            for (var i = $scope.contacts.length - 1; i >= 0; i--) {
-                if ($scope.contacts[i].isChecked) {
+            angular.forEach($scope.contacts, function(contact) {
+                if (contact.isChecked) {
                     promises.push(Contact.delete({
-                        id: $scope.contacts[i].id
+                        id: contact.id
                     }).$promise);
-                    $scope.contacts.splice(i, 1);
                 }
-            }
-            $q.all(promises);
-            $scope.checkedNumber = 0;
+
+            });
+            $q.all(promises).then(function(results) {
+                // for (var i = $scope.contacts.length - 1; i >= 0; i--) {
+                // if ($scope.contacts[i].isChecked) {             
+                //     $scope.contacts.splice(i, 1);
+                // }
+                //}
+                //$scope.checkedNumber = 0;
+                loadContacts($scope, Contact);
+            });
+
         }
         $scope.criteriaMatch = function(criteria) {
             return function(contact) {
