@@ -10,7 +10,8 @@ angular.module('myApp', [
   'ngResource',
   'ui.bootstrap'
 ]).
-config(function($stateProvider, $urlRouterProvider) {
+config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+  $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise('/home');
   $stateProvider.state('home', { 
     url: '/home',

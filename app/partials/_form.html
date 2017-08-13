@@ -1,10 +1,10 @@
   <div class="form-group">
     <label for="inputFirst">First Name</label>
-    <input type="text" ng-model="contact.first" id="inputFirst" class="form-control" placeholder="Enter name">
+    <input required type="text" ng-model="contact.first" id="inputFirst" class="form-control" placeholder="Enter name">
   </div>
   <div class="form-group">
     <label for="inputLast">Last Name</label>
-    <input type="text" ng-model="contact.last" id="inputLast" class="form-control" placeholder="Enter name">
+    <input required type="text" ng-model="contact.last" id="inputLast" class="form-control" placeholder="Enter name">
   </div>
 <div class="form-group">
     <dob-input dob="contact.dob"></dob-input>
@@ -12,11 +12,11 @@
 
 <div class="form-group">
     <label for="phoneNumber">Phone</label>
-    <input type="number" ng-maxlength="9" ng-model="contact.phone" id="phoneNumber" class="form-control" placeholder="Enter number">
+    <input required type="number" ng-maxlength="9" ng-model="contact.phone" id="phoneNumber" class="form-control" placeholder="Enter number">
   </div>
   <div class="form-group">
     <label for="inputRel">Relationship</label>
-    <select class="form-control" ng-model="contact.rel" id="inputRel">
+    <select required class="form-control" ng-model="contact.rel" id="inputRel">
       <option value="Home">Home</option>
       <option value="Work">Work</option>
       <option value="Others">Others</option>
@@ -25,11 +25,11 @@
   <fieldset class="form-group">
     <legend>Gender</legend>
       <label class="form-check-label">
-        <input type="radio" ng-model="contact.gender" name="inputGender" id="inputGender0" value="0">
+        <input required type="radio" ng-model="contact.gender" name="inputGender" id="inputGender0" value="0">
         Male
       </label>
     <label class="form-check-label">
-        <input type="radio" ng-model="contact.gender" name="inputGender" id="inputGender1" value="1">
+        <input required type="radio" ng-model="contact.gender" name="inputGender" id="inputGender1" value="1">
         Female
       </label>
   </fieldset>
@@ -38,5 +38,5 @@
     <textarea ng-model="contact.des" class="form-control" id="inputDesc" rows="3"></textarea>
   </div>
   
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" ng-disabled="contactForm.$invalid" class="btn btn-primary">Submit</button>
   <button ui-sref='home' class="btn btn-default">Cancel</button>

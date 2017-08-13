@@ -8,7 +8,7 @@
     controller.$inject = ['$scope', 'Contact', '$stateParams'];
 
     function controller($scope, Contact, $stateParams) {
-
+            var vm = this;
             Contact.get({
                 id: $stateParams.contactId
             }).$promise.then(function(contact) {           
@@ -16,12 +16,12 @@
                 var date = $scope.contact.dob.split('-');
                 $scope.contact.dob = new Date(date[0], date[1] - 1, date[2]);
                 $scope.contact.phone = Number($scope.contact.phone);
-            });
-
+            });        
             $scope.update = function ()
             {
                 console.log(contactForm);
                 console.log($scope.contact.dob);
             }
+           // vm.contactForm.$setDirty();
     }
 })();
