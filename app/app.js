@@ -11,7 +11,10 @@ angular.module('myApp', [
   'ui.bootstrap',
   'blockUI'
 ]).
-config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+config(function($stateProvider, $urlRouterProvider, $locationProvider, blockUIConfig) {
+  blockUIConfig.autoInjectBodyBlock = false;
+  blockUIConfig.blockBrowserNavigation = true;
+  blockUIConfig.message = 'Please wait for operation';
   $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise('/home');
   $stateProvider.state('home', { 
