@@ -20,8 +20,8 @@ angular.
           method: 'DELETE'
         },
         favorite: {
-          url: 'http://localhost/api/contacts/:id/favorite',
-          method: 'PUT'
+         // url: 'http://localhost/api/contacts/:id/favorite',
+          method: 'PATCH'
         }
       });
     }
