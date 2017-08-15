@@ -18,8 +18,10 @@
                         return;
                     }
                 blockUI.start();
-               // $scope.contact.dob = $filter('date')($scope.contact.dob, "yyyy-MM-dd")
                 Contact.insert($scope.contact)
+                .catch(function() {
+                    alert("Error: can't add object");
+                })
                 .finally(function(result) {
                     blockUI.stop();
                     $state.go("home");

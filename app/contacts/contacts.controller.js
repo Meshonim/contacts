@@ -3,14 +3,19 @@
 
     angular
         .module('myApp.contacts', ['ui.router', 'blockUI'])
-        .controller('ContactListController', controller)
+        .constant('NUMBER_EQUIVALENT_OF_TRUE', '1')
+        .controller('ContactListController', controller);
 
-    controller.$inject = ['$scope', 'Contact', '$q'];
+    controller.$inject = ['NUMBER_EQUIVALENT_OF_TRUE', '$scope', 'Contact', '$q'];
 
-    function controller($scope, Contact, $q) {
+    function controller(NUMBER_EQUIVALENT_OF_TRUE, $scope, Contact, $q) {
         loadContacts($scope, Contact);
+
         $scope.changeStatus = function(id, isFavorite) {
-            Contact.updateFavoriteStatus(id, isFavorite);
+            Contact.updateFavoriteStatus(id, isFavorite)
+            .catch(function () {
+                alert("Error: can't change object status");
+            })
         }
         $scope.check = function(isChecked) {
             if (isChecked)
@@ -26,10 +31,13 @@
                 }
 
             });
-            $q.all(promises).then(function(results) {
+            $q.all(promises)
+            .catch(function() {
+                alert("Error: checked object(s) can't be deleted");
+            })
+            .finally(function() {
                 loadContacts($scope, Contact);
             });
-
         }
         $scope.criteriaMatch = function(criteria) {
             return function(contact) {
@@ -41,16 +49,18 @@
                 return name.match(new RegExp(criteria, 'i'));
             }
         };
-    }
-
-    function loadContacts(scope, Contact) {
-        scope.checkedNumber = 0;
+        function loadContacts() {
+        $scope.checkedNumber = 0;
         Contact.getAll().then(function(result) {
-            scope.contacts = result;
+            $scope.contacts = result;
             angular.forEach(result, function(contact) {
-                contact.isFavorite = (contact.isFavorite === "1");
+                contact.isFavorite = 
+                (contact.isFavorite === NUMBER_EQUIVALENT_OF_TRUE);
                 contact.isChecked = false;
             });
         });
     }
+    }
+
+    
 })();

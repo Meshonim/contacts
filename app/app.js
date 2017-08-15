@@ -3,7 +3,6 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'myApp.contacts',
-  'myApp.favorite',
   'myApp.version',
   'myApp.core',
   'ui.router',

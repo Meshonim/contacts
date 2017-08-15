@@ -15,8 +15,9 @@
                 var date = $scope.contact.dob.split('-');
                 $scope.contact.dob = new Date(date[0], date[1] - 1, date[2]);
                 $scope.contact.phone = Number($scope.contact.phone);
-            }, function() {           
-                alert("Not found");
+            })
+            .catch (function() {           
+                alert("Error: can't get updating object");
                 $state.go("home");
             });       
             $scope.update = function ()
@@ -28,7 +29,10 @@
                     }
                 blockUI.start();
                 Contact.update($scope.contact)
-                .finally(function(result) {
+                .catch(function() {
+                    alert("Error: can't update object");
+                })
+                .finally(function() {
                     blockUI.stop();
                     $state.go("home")
                 });
