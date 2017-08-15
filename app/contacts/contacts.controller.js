@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('myApp.contacts', ['ui.router', 'blockUI'])
+        .module('contactApp.contacts', ['ui.router', 'blockUI'])
         .constant('NUMBER_EQUIVALENT_OF_TRUE', '1')
         .controller('ContactListController', controller);
 

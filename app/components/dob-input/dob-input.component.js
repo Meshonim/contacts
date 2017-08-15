@@ -2,16 +2,18 @@
     'use strict';
 
     angular
-    .module('myApp')
+    .module('contactApp')
     .component('dobInput', {
     templateUrl: 'components/dob-input/dob-input.template.html',
-    controller: function () {
-        var self = this;
-        self.date = new Date();
-    },
+    controller: DobInputController,
     bindings: {
         dob: '='
     }
 });
+
+function DobInputController () {
+        var self = this;
+        self.date = new Date();
+    }
 
 })();

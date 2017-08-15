@@ -1,10 +1,9 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'myApp.contacts',
-  'myApp.version',
-  'myApp.core',
+angular.module('contactApp', [
+  'contactApp.contacts',
+  'contactApp.core',
   'ui.router',
   'ngResource',
   'ui.bootstrap',

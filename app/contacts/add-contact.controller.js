@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('myApp.contacts')
+        .module('contactApp.contacts')
         .controller('AddContactController', controller)
 
     controller.$inject = ['Contact', '$scope', '$state', '$filter', 'blockUI'];

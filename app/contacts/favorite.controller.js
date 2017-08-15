@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('myApp.contacts')
+        .module('contactApp.contacts')
         .controller('FavoriteListController', controller)
 
     controller.$inject = ['NUMBER_EQUIVALENT_OF_TRUE', '$scope', 'Contact'];

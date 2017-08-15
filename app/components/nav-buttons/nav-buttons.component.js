@@ -2,12 +2,9 @@
     'use strict';
 
     angular
-    .module('myApp')
+    .module('contactApp')
     .component('navButtons', {
-    templateUrl: 'components/nav-buttons/nav-buttons.template.html',
-    controller: function () {
-        var self = this;
-    }
+    templateUrl: 'components/nav-buttons/nav-buttons.template.html'
 });
 
 })();

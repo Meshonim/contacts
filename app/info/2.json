@@ -1,9 +1,0 @@
-[
-    {
-        "id": 1, 
-        "name": "John Johm", 
-        "dob": "12.12.1990",
-        "phone": "+375291111112",
-        "isFavorite": "true"
-    }
-]

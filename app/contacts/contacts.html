@@ -1,8 +1,7 @@
 <div class="container-fluid">
 <div class="row">
 <div class="col-md-offset-2">
-   <button type="button" ui-sref="home" class="btn btn-default">All contacts</button>
-   <button type="button" ui-sref="favorite" class="btn btn-default">Favorite contacts</button>
+   <nav-buttons></nav-buttons>
 </div>
 <div>
 <div class="row top-buffer">
@@ -23,17 +22,9 @@
             </tr>
          </thead>
          <tbody>
-
-            <tr ng-repeat="contact in contacts | filter:criteriaMatch(criteria) track by $index">
-               <td><input type="checkbox" ng-model="contact.isChecked" ng-change="check(contact.isChecked)" ></input></td>
-               <td>{{ contact.first }} {{contact.last}}</td>
-               <td>{{ contact.dob | date :  "dd.MM.yyyy" }}</td>
-               <td>{{ contact.phone }}</td>
-               <td><input type="checkbox" ng-model="contact.isFavorite" ng-change="changeStatus(contact.id, contact.isFavorite)" ></input></td>
-               <td><button ui-sref='editContact({contactId: {{contact.id}}})' type="button" class="btn btn-success">
-                  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
-                  </button>
-               </td>
+              
+            <tr contact-row ng-repeat="contact in contacts | filter:criteriaMatch(criteria)">
+               
             </tr>
          </tbody>
       </table>

@@ -2,12 +2,9 @@
     'use strict';
 
     angular
-    .module('myApp')
+    .module('contactApp')
     .component('searchInput', {
     templateUrl: 'components/search-input/search-input.template.html',
-    controller: function () {
-        var self = this;
-    },
     bindings: {
         criteria: '='
     }
