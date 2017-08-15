@@ -8,7 +8,7 @@
     controller.$inject = ['$scope', 'Contact'];
     
     function controller($scope, Contact) {
-        Contact.query().$promise.then(function(result) {
+        Contact.getAll().then(function(result) {
             $scope.favorite = result.filter(function (e) {
                 return e.isFavorite === "1";
             });

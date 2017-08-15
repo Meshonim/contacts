@@ -9,14 +9,16 @@
 
     function controller($scope, Contact, $stateParams, blockUI, $filter, $state) {
             var vm = this;
-            Contact.get({
-                id: $stateParams.contactId
-            }).$promise.then(function(contact) {           
+            Contact.get($stateParams.contactId)
+            .then(function(contact) {           
                 $scope.contact = contact;
                 var date = $scope.contact.dob.split('-');
                 $scope.contact.dob = new Date(date[0], date[1] - 1, date[2]);
                 $scope.contact.phone = Number($scope.contact.phone);
-            });        
+            }, function() {           
+                alert("Not found");
+                $state.go("home");
+            });       
             $scope.update = function ()
             {
                 if (vm.contactForm.$invalid)
@@ -25,23 +27,11 @@
                         return;
                     }
                 blockUI.start();
-                Contact.update(
-                     {
-                         id: $scope.contact.id
-                     },
-                     {
-                        first: $scope.contact.first,
-                        last: $scope.contact.last,
-                        dob: $filter('date')($scope.contact.dob, "yyyy-MM-dd"),
-                        phone: $scope.contact.phone,
-                        gender: $scope.contact.gender,
-                        rel: $scope.contact.rel,
-                        des: $scope.contact.des
-                     })
-                .$promise.then(function(result) {
+                Contact.update($scope.contact)
+                .finally(function(result) {
                     blockUI.stop();
-                    $state.go("home");
-            });
+                    $state.go("home")
+                });
             }
     }
 })();

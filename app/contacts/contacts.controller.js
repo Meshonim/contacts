@@ -10,11 +10,7 @@
     function controller($scope, Contact, $q) {
         loadContacts($scope, Contact);
         $scope.changeStatus = function(id, isFavorite) {
-            Contact.favorite({
-                id: id
-            }, {
-                status: isFavorite
-            });
+            Contact.updateFavoriteStatus(id, isFavorite);
         }
         $scope.check = function(isChecked) {
             if (isChecked)
@@ -26,19 +22,11 @@
             var promises = [];
             angular.forEach($scope.contacts, function(contact) {
                 if (contact.isChecked) {
-                    promises.push(Contact.delete({
-                        id: contact.id
-                    }).$promise);
+                    promises.push(Contact.delete(contact.id));
                 }
 
             });
             $q.all(promises).then(function(results) {
-                // for (var i = $scope.contacts.length - 1; i >= 0; i--) {
-                // if ($scope.contacts[i].isChecked) {             
-                //     $scope.contacts.splice(i, 1);
-                // }
-                //}
-                //$scope.checkedNumber = 0;
                 loadContacts($scope, Contact);
             });
 
@@ -57,7 +45,7 @@
 
     function loadContacts(scope, Contact) {
         scope.checkedNumber = 0;
-        Contact.query().$promise.then(function(result) {
+        Contact.getAll().then(function(result) {
             scope.contacts = result;
             angular.forEach(result, function(contact) {
                 contact.isFavorite = (contact.isFavorite === "1");

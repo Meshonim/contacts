@@ -28,11 +28,13 @@ config(function($stateProvider, $urlRouterProvider, $locationProvider, blockUICo
     url: '/editContact/:contactId',
     component: 'dobInput',
     templateUrl: 'contacts/edit-contact.html',
-    controller: 'EditContactController'
+    controller: 'EditContactController',
+    controllerAs: 'edit'
   }).state('addContact', { 
     url: '/addContact',
     templateUrl: 'contacts/add-contact.html',
-    controller: 'AddContactController'
+    controller: 'AddContactController',
+    controllerAs: 'addCtrl'
   });
    $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise('/home');

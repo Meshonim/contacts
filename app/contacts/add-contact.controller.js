@@ -18,17 +18,9 @@
                         return;
                     }
                 blockUI.start();
-                Contact.insert({},
-                     {
-                        first: $scope.contact.first,
-                        last: $scope.contact.last,
-                        dob: $filter('date')($scope.contact.dob, "yyyy-MM-dd"),
-                        phone: $scope.contact.phone,
-                        gender: $scope.contact.gender,
-                        rel: $scope.contact.rel,
-                        des: $scope.contact.des
-                     })
-                .$promise.then(function(result) {
+               // $scope.contact.dob = $filter('date')($scope.contact.dob, "yyyy-MM-dd")
+                Contact.insert($scope.contact)
+                .finally(function(result) {
                     blockUI.stop();
                     $state.go("home");
             });
