@@ -15,8 +15,7 @@ config(function($stateProvider, $urlRouterProvider, $locationProvider, blockUICo
   blockUIConfig.autoInjectBodyBlock = false;
   blockUIConfig.blockBrowserNavigation = true;
   blockUIConfig.message = 'Please wait for operation';
-  $locationProvider.html5Mode(true);
-  $urlRouterProvider.otherwise('/home');
+ 
   $stateProvider.state('home', { 
     url: '/home',
     templateUrl: 'contacts/contacts.html',
@@ -35,7 +34,7 @@ config(function($stateProvider, $urlRouterProvider, $locationProvider, blockUICo
     templateUrl: 'contacts/add-contact.html',
     controller: 'AddContactController'
   });
-}).run(function($state) {
-  $state.go('home'); 
+   $locationProvider.html5Mode(true);
+  $urlRouterProvider.otherwise('/home');
 });
 
