@@ -27,7 +27,7 @@
             var promises = [];
             angular.forEach($scope.contacts, function(contact) {
                 if (contact.isChecked) {
-                    promises.push(Contact.delete(contact.id));
+                    promises.push(Contact.remove(contact.id));
                 }
 
             });

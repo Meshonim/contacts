@@ -3,14 +3,13 @@
 
     angular
     .module('myApp')
-    .component('dobInput', {
-    templateUrl: 'components/dob-input/dob-input.template.html',
+    .component('searchInput', {
+    templateUrl: 'components/search-input/search-input.template.html',
     controller: function () {
         var self = this;
-        self.date = new Date();
     },
     bindings: {
-        dob: '='
+        criteria: '='
     }
 });
 
