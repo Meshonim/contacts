@@ -3,19 +3,19 @@
       <div class="col-md-offset-4 col-md-4">
          <form name="$ctrl.contactForm" novalidate ng-submit="$ctrl.action()">
             <div class="form-group">
-               <label for="inputFirst">First Name</label>
+               <label for="inputFirst">First Name (no more than 15 characters)</label>
                <input name="first" required type="text" ng-maxlength="15" ng-model="$ctrl.contact.first" id="inputFirst" class="form-control" placeholder="Enter name">
             </div>
             <div class="form-group">
-               <label for="inputLast">Last Name</label>
+               <label for="inputLast">Last Name (no more than 15 characters)</label>
                <input name="last" required type="text" ng-maxlength="15" ng-model="$ctrl.contact.last" id="inputLast" class="form-control" placeholder="Enter name">
             </div>
             <div class="form-group">
                <dob-input dob="$ctrl.contact.dob"></dob-input>
             </div>
             <div class="form-group">
-               <label for="phoneNumber">Phone</label>
-               <input name="phone" required type="number" ng-maxlength="9" ng-model="$ctrl.contact.phone" id="phoneNumber" class="form-control" placeholder="Enter number">
+               <label for="phoneNumber">Phone (onl digits, no more than 9 characters)</label>
+               <input min="0" name="phone" required type="number" ng-maxlength="9" ng-model="$ctrl.contact.phone" id="phoneNumber" class="form-control" placeholder="Enter number">
             </div>
             <div class="form-group">
                <label for="inputRel">Relationship</label>

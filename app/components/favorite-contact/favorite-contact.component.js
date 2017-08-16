@@ -1,17 +1,17 @@
-(function(){
+(function() {
     'use strict';
 
     angular
-    .module('contactApp')
-    .component('favoriteContact', {
-    templateUrl: 'components/favorite-contact/favorite-contact.template.html',
-    controller: FavoriteContactController,
-    bindings: {
-        contact: '<'
-    }
-});
+        .module('contactApp')
+        .component('favoriteContact', {
+            templateUrl: 'components/favorite-contact/favorite-contact.template.html',
+            controller: FavoriteContactController,
+            bindings: {
+                contact: '<'
+            }
+        });
 
-function FavoriteContactController () {
+    function FavoriteContactController() {
         var self = this;
     }
 

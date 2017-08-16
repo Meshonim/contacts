@@ -11,12 +11,11 @@
             </tr>
          </thead>
          <tbody>
-              
             <tr contact-row 
-            change-status="$ctrl.changeStatus(id, isFavorite)"
-            check="$ctrl.check(contact.isChecked)"
-            contact="contact"
-            ng-repeat="contact in $ctrl.contacts | filter:$ctrl.criteriaMatch($ctrl.criteria)">
+               change-status="$ctrl.changeStatus(id, isFavorite)"
+               check="$ctrl.check(contact.isChecked)"
+               contact="contact"
+               ng-repeat="contact in $ctrl.contacts | filter:$ctrl.criteriaMatch($ctrl.criteria)">
             </tr>
          </tbody>
       </table>
