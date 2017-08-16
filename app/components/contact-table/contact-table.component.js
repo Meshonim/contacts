@@ -3,6 +3,7 @@
 
     angular
     .module('contactApp')
+    .constant('NUMBER_EQUIVALENT_OF_TRUE', '1')
     .component('contactTable', {
     templateUrl: 'components/contact-table/contact-table.template.html',
     controller: ContactTableController
@@ -12,7 +13,7 @@ ContactTableController.$inject = ['NUMBER_EQUIVALENT_OF_TRUE', 'Contact', '$q'];
 
     function ContactTableController(NUMBER_EQUIVALENT_OF_TRUE, Contact, $q) {
         var self = this;
-        loadContacts(Contact);
+        loadContacts();
 
         self.changeStatus = function(id, isFavorite) {
             Contact.updateFavoriteStatus(id, isFavorite)
@@ -20,12 +21,14 @@ ContactTableController.$inject = ['NUMBER_EQUIVALENT_OF_TRUE', 'Contact', '$q'];
                 alert("Error: can't change object status");
             })
         }
+
         self.check = function(isChecked) {
             if (isChecked)
                 self.checkedNumber++;
             else
                 self.checkedNumber--;
         }
+
         self.remove = function() {
             
             var promises = [];
@@ -43,6 +46,7 @@ ContactTableController.$inject = ['NUMBER_EQUIVALENT_OF_TRUE', 'Contact', '$q'];
                 loadContacts();
             });
         }
+
         self.criteriaMatch = function(criteria) {
             return function(contact) {
                 if (criteria === undefined)
@@ -53,6 +57,7 @@ ContactTableController.$inject = ['NUMBER_EQUIVALENT_OF_TRUE', 'Contact', '$q'];
                 return name.match(new RegExp(criteria, 'i'));
             }
         };
+
         function loadContacts() {
         self.checkedNumber = 0;
         Contact.getAll().then(function(result) {

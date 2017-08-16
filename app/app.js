@@ -2,8 +2,6 @@
 
 // Declare app level module which depends on views, and components
 angular.module('contactApp', [
-  'contactApp.contacts',
-  'contactApp.core',
   'ui.router',
   'ngResource',
   'ui.bootstrap',

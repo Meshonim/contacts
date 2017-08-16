@@ -1,6 +1,6 @@
 angular.
-module('contactApp.core', ['ngResource']).
-factory('Contact', ['$filter', '$resource',
+module('contactApp')
+.factory('Contact', ['$filter', '$resource',
     function($filter, $resource) {
         var resource = $resource('http://localhost/api/contacts/:id', {
             id: ''
