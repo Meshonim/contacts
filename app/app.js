@@ -14,7 +14,7 @@ config(function($stateProvider, $urlRouterProvider, $locationProvider, blockUICo
  
   $stateProvider.state('home', { 
     url: '/home',
-    component: 'contactTable'
+    component: 'contactPage'
   }).state('favorite', { 
     url: '/favorite',
     component: 'favoritePage'

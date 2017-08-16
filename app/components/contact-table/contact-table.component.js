@@ -6,7 +6,11 @@
     .constant('NUMBER_EQUIVALENT_OF_TRUE', '1')
     .component('contactTable', {
     templateUrl: 'components/contact-table/contact-table.template.html',
-    controller: ContactTableController
+    controller: ContactTableController,
+    bindings: {
+        criteria: '<'
+    }
+    
 });
 
 ContactTableController.$inject = ['NUMBER_EQUIVALENT_OF_TRUE', 'Contact', '$q'];
