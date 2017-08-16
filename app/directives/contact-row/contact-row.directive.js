@@ -7,7 +7,12 @@
     
     function contactRow () {
     var directive = {
-        templateUrl: 'directives/contact-row/contact-row.template.html'
+        templateUrl: 'directives/contact-row/contact-row.template.html',
+        scope: {
+        contact: '=',
+        check: '&',
+        changeStatus: '&'
+    }
     };
     return directive;
     }

@@ -1,0 +1,48 @@
+<div class="container-fluid">
+   <div class="row">
+      <div class="col-md-offset-4 col-md-4">
+         <form name="$ctrl.contactForm" novalidate ng-submit="$ctrl.action()">
+            <div class="form-group">
+               <label for="inputFirst">First Name</label>
+               <input name="first" required type="text" ng-maxlength="15" ng-model="$ctrl.contact.first" id="inputFirst" class="form-control" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+               <label for="inputLast">Last Name</label>
+               <input name="last" required type="text" ng-maxlength="15" ng-model="$ctrl.contact.last" id="inputLast" class="form-control" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+               <dob-input dob="$ctrl.contact.dob"></dob-input>
+            </div>
+            <div class="form-group">
+               <label for="phoneNumber">Phone</label>
+               <input name="phone" required type="number" ng-maxlength="9" ng-model="$ctrl.contact.phone" id="phoneNumber" class="form-control" placeholder="Enter number">
+            </div>
+            <div class="form-group">
+               <label for="inputRel">Relationship</label>
+               <select name="rel" required class="form-control" ng-model="$ctrl.contact.rel" id="inputRel">
+                  <option value="Home">Home</option>
+                  <option value="Work">Work</option>
+                  <option value="Others">Others</option>
+               </select>
+            </div>
+            <fieldset class="form-group">
+               <legend>Gender</legend>
+               <label class="form-check-label">
+               <input name="gender" required type="radio" ng-model="$ctrl.contact.gender" id="inputGender0" value="0">
+               Male
+               </label>
+               <label class="form-check-label">
+               <input name="gender" required type="radio" ng-model="$ctrl.contact.gender" id="inputGender1" value="1">
+               Female
+               </label>
+            </fieldset>
+            <div class="form-group">
+               <label for="inputDesc">Description</label>
+               <textarea name="des" ng-model="$ctrl.contact.des" class="form-control" id="inputDesc" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button ui-sref='home' class="btn btn-default">Cancel</button>
+         </form>
+      </div>
+   </div>
+</div>

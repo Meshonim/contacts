@@ -1,0 +1,43 @@
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-offset-2">
+   <nav-buttons></nav-buttons>
+</div>
+<div>
+<div class="row top-buffer">
+<div class="col-md-offset-2 col-md-3">
+   <search-input criteria='$ctrl.criteria'></search-input>
+</div>
+<div>
+<div class="row">
+   <div class="col-md-offset-2 col-md-8">
+      <table class="table table-striped">
+         <thead>
+            <tr>
+               <th></th>
+               <th>Name</th>
+               <th>DOB</th>
+               <th>Phone number</th>
+               <th>Favorite</th>
+            </tr>
+         </thead>
+         <tbody>
+              
+            <tr contact-row 
+            change-status="$ctrl.changeStatus(id, isFavorite)"
+            check="$ctrl.check(contact.isChecked)"
+            contact="contact"
+            ng-repeat="contact in $ctrl.contacts | filter:$ctrl.criteriaMatch($ctrl.criteria)">
+            </tr>
+         </tbody>
+      </table>
+   </div>
+</div>
+<div class="row">
+<div class="col-md-offset-8">
+   <button type="button" ng-disabled="$ctrl.checkedNumber == 0" ng-click="$ctrl.remove()" class="btn btn-danger">Remove</button>
+   <button ui-sref='addContact' type="button" class="btn btn-primary">Add new</button>   
+</div>
+<div>
+
+</div>

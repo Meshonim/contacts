@@ -16,23 +16,16 @@ config(function($stateProvider, $urlRouterProvider, $locationProvider, blockUICo
  
   $stateProvider.state('home', { 
     url: '/home',
-    templateUrl: 'contacts/contacts.html',
-    controller: 'ContactListController'
+    component: 'contactTable'
   }).state('favorite', { 
     url: '/favorite',
-    templateUrl: 'contacts/favorite.html',
-    controller: 'FavoriteListController'
-  }).state('editContact', { 
-    url: '/editContact/:contactId',
-    component: 'dobInput',
-    templateUrl: 'contacts/edit-contact.html',
-    controller: 'EditContactController',
-    controllerAs: 'edit'
+    component: 'favoritePage'
+  }).state('updateContact', { 
+    url: '/updateContact/:contactId',
+    component: 'updatePage',
   }).state('addContact', { 
     url: '/addContact',
-    templateUrl: 'contacts/add-contact.html',
-    controller: 'AddContactController',
-    controllerAs: 'addCtrl'
+    component: 'addPage',
   });
    $locationProvider.html5Mode(true);
   $urlRouterProvider.otherwise('/home');
